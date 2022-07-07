@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./assets/css/normalize.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
 
     <!-- nhúng icon - font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,8 +23,8 @@
 <body>
     <div class="main">
         <header class="header">
-            <div class="grid">
-                <nav class="navbar">
+            <div class="grid wide">
+                <nav class="navbar hide-on-mobile-table">
                     <ul class="navbar-list">
                         <li class="navbar-item navbar-item-has-qr navbar-item-separate">
                             Vào cửa hàng trên ứng dụng shopee
@@ -144,7 +146,38 @@
 
                 <!-- header with search -->
                 <div class="header-with-search">
-                    <div class="header__logo">
+                    <div class="navbar__category">
+                        <div class="navbar__category-btn">
+                            <label for="navbar__category-check" class="navbar__category-btn-icon fa-solid fa-bars"></label>
+                            
+                            <!-- category -->
+                            <input type="checkbox" id="navbar__category-check" class="navbar__category-check" hidden>
+                            
+                            <label for="navbar__category-check" class="navbar__category-overlay"></label>
+                            <ul class="navbar__category-list">
+                                <li class="navbar__category-item">
+                                    <a href="" class="navbar__category-link">Item 1</a>
+                                </li>
+                                <li class="navbar__category-item">
+                                    <a href="" class="navbar__category-link">Item 2</a>
+                                </li>
+                                <li class="navbar__category-item">
+                                    <a href="" class="navbar__category-link">Item 3</a>
+                                </li>
+
+                                <label for="navbar__category-check" class="navbar__category-close">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </label>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <label for="navbar__search-check" class="navbar__search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+                    <input type="checkbox" class="navbar__search-check" id="navbar__search-check" hidden>
+
+                    <div class="header__logo hide-on-tablet">
                         <a href="#" class="header__logo-home">
                             <svg viewBox="0 0 192 65" class="header__logo-img">
                                 <g fill-rule="evenodd">
@@ -157,7 +190,7 @@
                         </a>
                     </div>
 
-                    <div class="header__search">
+                    <div class="header__search hide-on-mobile">
                         <div class="header__search-input-wrap">
                             <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm">
                             <div class="header__search-history">
@@ -190,7 +223,9 @@
                             </ul>
                         </div>
                         <div class="header__search-btn">
-                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                            <a href="#" class="header__search-link">
+                                <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                            </a>    
                         </div>
                     </div>
 
@@ -379,14 +414,32 @@
                     </div>
                 </div>
             </div>
+
+            <!-- header sort bar tablet -->
+            <div class="header-sort-bar">
+                <ul class="header-sort-list">
+                    <li class="header-sort-item">
+                        <a href="#" class="header-sort-link">Liên quan</a>
+                    </li>
+                    <li class="header-sort-item header-sort-item--active">
+                        <a href="#" class="header-sort-link">Mới nhất</a>
+                    </li>
+                    <li class="header-sort-item">
+                        <a href="#" class="header-sort-link">Bán chạy</a>
+                    </li>
+                    <li class="header-sort-item">
+                        <a href="#" class="header-sort-link">Giá</a>
+                    </li>
+                </ul>
+            </div>
         </header>
 
         <div class="app__container">
-            <div class="grid">
-                <div class="grid__row app__content">
+            <div class="grid wide">
+                <div class="row sm-gutter app__content">
                     <!-- Category -->
-                    <div class="grid__column-2">
-                        <nav class="category">
+                    <div class="col l-2 m-0 c-0">
+                        <nav class="category hide-on-mobile-table">
                             <h3 class="category__heading">
                                 <i class="category__heading-icon fa-solid fa-list"></i>
                                 Danh mục
@@ -407,8 +460,8 @@
                     </div>
 
                     <!-- Content -->
-                    <div class="grid__column-10">
-                        <div class="home-filter">
+                    <div class="col l-10 m-12 c-12">
+                        <div class="home-filter hide-on-mobile-table">
                             <div class="home-filter-sort-wrap">
                                 <span class="home-filter__title">Sắp xếp theo</span>
                                 <button class="home-filter__title-btn btn">Phổ biến</button>
@@ -450,9 +503,9 @@
 
                         <!-- products list -->
                         <div class="home-product">
-                            <div class="grid__row">
+                            <div class="row sm-gutter">
                                 <!-- product item -->
-                                <div class="grid__column-2-5">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="detail.html" target="_blank">
                                         <div class="home-product-item-img" style="background-image: url(./assets/img/kem-duong-am-neutrogena-1.jpg);"></div>
                                         <h4 class="home-product-item-name">Kem dưỡng ẩm netrogeno siêu an toàn, đẹp, mịn màng với da em bé, phụ nữ</h4>
@@ -493,7 +546,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-5">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item-img" style="background-image: url(./assets/img/kem-duong-am-neutrogena-1.jpg);"></div>
                                         <h4 class="home-product-item-name">Kem dưỡng ẩm netrogeno siêu an toàn, đẹp, mịn màng với da em bé, phụ nữ</h4>
@@ -534,7 +587,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-5">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item-img" style="background-image: url(./assets/img/kem-duong-am-neutrogena-1.jpg);"></div>
                                         <h4 class="home-product-item-name">Kem dưỡng ẩm netrogeno siêu an toàn, đẹp, mịn màng với da em bé, phụ nữ</h4>
@@ -575,7 +628,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-5">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item-img" style="background-image: url(./assets/img/kem-duong-am-neutrogena-1.jpg);"></div>
                                         <h4 class="home-product-item-name">Kem dưỡng ẩm netrogeno siêu an toàn, đẹp, mịn màng với da em bé, phụ nữ</h4>
@@ -616,7 +669,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-5">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item-img" style="background-image: url(./assets/img/kem-duong-am-neutrogena-1.jpg);"></div>
                                         <h4 class="home-product-item-name">Kem dưỡng ẩm netrogeno siêu an toàn, đẹp, mịn màng với da em bé, phụ nữ</h4>
@@ -657,7 +710,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-5">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item-img" style="background-image: url(./assets/img/kem-duong-am-neutrogena-1.jpg);"></div>
                                         <h4 class="home-product-item-name">Kem dưỡng ẩm netrogeno siêu an toàn, đẹp, mịn màng với da em bé, phụ nữ</h4>
@@ -698,7 +751,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-5">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item-img" style="background-image: url(./assets/img/kem-duong-am-neutrogena-1.jpg);"></div>
                                         <h4 class="home-product-item-name">Kem dưỡng ẩm netrogeno siêu an toàn, đẹp, mịn màng với da em bé, phụ nữ</h4>
@@ -739,7 +792,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-5">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item-img" style="background-image: url(./assets/img/kem-duong-am-neutrogena-1.jpg);"></div>
                                         <h4 class="home-product-item-name">Kem dưỡng ẩm netrogeno siêu an toàn, đẹp, mịn màng với da em bé, phụ nữ</h4>
@@ -780,7 +833,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-5">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item-img" style="background-image: url(./assets/img/kem-duong-am-neutrogena-1.jpg);"></div>
                                         <h4 class="home-product-item-name">Kem dưỡng ẩm netrogeno siêu an toàn, đẹp, mịn màng với da em bé, phụ nữ</h4>
@@ -821,7 +874,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-5">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item-img" style="background-image: url(./assets/img/kem-duong-am-neutrogena-1.jpg);"></div>
                                         <h4 class="home-product-item-name">Kem dưỡng ẩm netrogeno siêu an toàn, đẹp, mịn màng với da em bé, phụ nữ</h4>
@@ -866,7 +919,7 @@
                         </div>
 
                         <!-- Pagination -->
-                        <div class="pagination home-product-pagination">
+                        <div class="m-12 c-12 pagination home-product-pagination">
                             <ul class="pagination-list">
                                 <li class="pagination-item">
                                     <a href="" class="pagination-item__link">
@@ -909,9 +962,9 @@
         </div>
 
         <footer class="footer">
-            <div class="grid">
-                <div class="grid__row">
-                    <div class="grid__column-2-5">
+            <div class="grid wide">
+                <div class="row">
+                    <div class="col l-2-4">
                         <h4 class="footer-heading">Chăm sóc khách hàng</h4>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -925,7 +978,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-5">
+                    <div class="col l-2-4">
                         <h4 class="footer-heading">Về Shopee</h4>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -939,7 +992,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-5">
+                    <div class="col l-2-4">
                         <h4 class="footer-heading">Danh mục</h4>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -953,7 +1006,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-5">
+                    <div class="col l-2-4">
                         <h4 class="footer-heading">Theo dõi chúng tôi</h4>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -976,7 +1029,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-5">
+                    <div class="col l-2-4">
                         <h4 class="footer-heading">Tải ứng dụng shopee trên</h4>
                         <div class="footer-download">
                             <img src="./assets/img/qr_code.png" alt="Download QR" class="footer-qrcode">
@@ -994,7 +1047,7 @@
             </div>
 
             <div class="footer-copyright">
-                <div class="grid">
+                <div class="grid wide">
                     <p class="footer-copyright__text">© 2022 - Bản quyền thuộc về Công ty TNHH Shopee</p>
                 </div>
             </div>
